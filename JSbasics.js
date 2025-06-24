@@ -26,6 +26,7 @@ for (let i = 0;i < arr.length;i++)
 let family = { parents: {}, children: [ {name: "Ali"}, {name: "Lea"}, {name: "Mona"} ] };
 console.log(family.children[2].name)
 
+
 //4
 let str = "abcde"
 let tempe = ""
@@ -37,19 +38,19 @@ console.log(tempe)
 
 // 5
 let array = ["2",5,true,10,9,87,,,,,,,,,]
-let x = {}
+let neeObject = {}
 for(let i = 0;i<array.length;i++)
 {
-    if (x[typeof array[i]]) 
+    if (neeObject[typeof array[i]]) 
         {
-            x[typeof array[i]] = x[typeof array[i]] + 1
+            neeObject[typeof array[i]] = neeObject[typeof array[i]] + 1
         }
         else
         {
-            x[typeof array[i]] = 1
+            neeObject[typeof array[i]] = 1
         }
 }
-for (let key of Object.keys(x))
+for (const key of Object.keys(neeObject))
 {
-    console.log(key + ": " + x[key])
+    console.log(`${key}: ${neeObject[key]}`)
 }
