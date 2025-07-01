@@ -87,5 +87,30 @@ function DeletObj(){
 
 
 function menu(){
-    
+    console.log("to read pres 1")
+    console.log("to add pres 2")
+    console.log("to updeat name by id pres 3")
+    console.log("to delet obj by id pres 4")
+    r.question("",(answer)=>{
+        let Answer = answer
+        switch (Answer) {
+            case "1":
+                readF(console.log)
+                r.close()
+                break;
+            case "2":
+                writeF()
+                break;
+            case "3":
+                updeatObj()
+                break;
+            case "4":
+                DeletObj()
+                break;
+            default:
+                break;
+        }
+    })
 }
+
+menu()
