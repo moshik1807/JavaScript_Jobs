@@ -1,46 +1,37 @@
 import readline from 'node:readline';
-import {read, readFile, writeFile} from "node:fs"
+import { read, readFile, writeFile } from "node:fs"
 
 
 const r = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+    input: process.stdin,
+    output: process.stdout
 });
 
-// r.question("", (answer) => {
-//   console.log("" + answer + "!");
-//   r.close();
-// });
-
-
-function readF(cb){
-    readFile("arrayObj.txt","utf8",(err,data)=>{
-        if(err){
+function readF(cb) {
+    readFile("arrayObj.txt", "utf8", (err, data) => {
+        if (err) {
             console.log(err)
             return
         }
-        console.log(data)
         cb(data)
     })
 }
 
-
-function writeF(){
-    writeFile("arrayObj.txt","utf8",(err,data)=>{
-        if(err){
-            console.log(err)
-            return
-        }
-
+function writeF() {
+    r.question("", (answer) => {
+    let newObj;
+    newObj = JSON.parse(answer)
+    console.log(answer)
+    r.close();
+    readF((data) => {
+        console.log(answer)
+        const arr = JSON.parse(data)
+        arr.push(newObj);
+        writeFile("arrayObj.txt", JSON.stringify(arr), (err,data) =>{
+            console.log(data ? 'success' : err)
+        })
     })
 }
+)}
 
-
-readF()
-function uppdeat(){
-    r.question
-}
-
-function createObj(){
-    r.question("enter new json: ",())
-}
+writeF()
